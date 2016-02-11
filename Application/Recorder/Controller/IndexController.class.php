@@ -24,6 +24,10 @@ class IndexController extends Controller {
         echo $result ? json_encode($result) : "Failed";
     }
 
+    public function addRecords(){
+        echo "Ok";
+    }
+
     public function add(){    	
         $JsonData = I('post.JsonData','','');
         $DataList = json_decode($JsonData, TRUE);
