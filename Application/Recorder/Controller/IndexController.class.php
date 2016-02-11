@@ -25,7 +25,9 @@ class IndexController extends Controller {
     }
 
     public function addRecords(){
-        echo "Ok";
+        $JsonData = I('post.JsonData','','');
+        $DataList = json_decode($JsonData, TRUE);
+        dump($DataList);
     }
 
     public function add(){    	
