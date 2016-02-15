@@ -25,24 +25,17 @@ class IndexController extends Controller {
     }
 
     public function addRecords(){
-        $JsonData = I('post.JsonData','','');
-        $DataList = json_decode($JsonData, TRUE);
-        dump($DataList);
-    }
-
-    public function add(){    	
-        $JsonData = I('post.JsonData','','');
-        $DataList = json_decode($JsonData, TRUE);
+        $JsonString = I('post.JsonData','','');
+        $DataList = json_decode($JsonString, TRUE);
         if($DataList)
         {
             $Location = M($this->TABLE_NAME);
             $Location->create();
             $Location->addAll($DataList);
             echo "Ok";
-            return;
         }
-        
-        echo "Failed";		
+        else
+            echo "Failed";  
     }
 
     public function del($id){
